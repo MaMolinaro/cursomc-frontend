@@ -5,7 +5,7 @@ import { LocalUser } from "../models/local_user";
 @Injectable()
 export class StorageService {
 
-    getLocalUser() : localUser {
+    getLocalUser() : LocalUser {
         let usr = localStorage.getItem(STORAGE_KEYS.localUser);
         if (usr == null) {
             return null;
@@ -14,7 +14,7 @@ export class StorageService {
         }
     }
 
-    setLocalUser(obj: localUser) {
+    setLocalUser(obj: LocalUser) {
         if (obj == null) {
             localStorage.removeItem(STORAGE_KEYS.localUser);
         } else {
