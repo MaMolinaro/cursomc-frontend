@@ -23,16 +23,19 @@ export class ErrorInterceptor implements HttpInterceptor {
                     errorObj = JSON.parse(errorObj);
                 }
 
+                console.log("Erro detectado pelo interceptor:");
+                console.log(errorObj);
+
                 switch (errorObj) {
                     case 401:
-                        this.handle401();
-                        break;
+                    this.handle401();
+                    break;
                     case 403:
-                        this.handle403();
-                        break;
+                    this.handle403();
+                    break;
                     default:
-                        this.handleDefaultError(errorObj);
-                        break;
+                    this.handleDefaultError(errorObj);
+                    break;
                 }
 
                 return Observable.throw(errorObj);
