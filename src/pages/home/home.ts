@@ -33,7 +33,7 @@ export class HomePage {
   }
 
   ionViewDidEnter() {
-    this.auth.authenticate(this.creds)
+    this.auth.refreshToken()
     .subscribe(response => {
       console.log(response.headers.get('Authorization'));
       this.auth.successfulLogin(response.headers.get('Authorization'));
@@ -43,7 +43,7 @@ export class HomePage {
   }
 
   login() {
-    this.auth.refreshToken()
+    this.auth.authenticate(this.creds)
       .subscribe(response => {
         console.log(response.headers.get('Authorization'));
         this.auth.successfulLogin(response.headers.get('Authorization'));
@@ -52,4 +52,7 @@ export class HomePage {
       error => {});
   }
 
+  signup() {
+    this.navCtrl.push('SignupPage');
+  }
 }
