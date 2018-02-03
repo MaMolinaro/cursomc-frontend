@@ -3,12 +3,11 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs/Rx";
 import { ClienteDTO } from "../../models/cliente.dto";
 import { API_CONFIG } from "../../config/api.config";
-import { StorageService } from "../storage.service";
-import { ResponseType } from "@angular/http/src/enums";
+
 
 @Injectable()
 export class ClienteService {
-    constructor (public http: HttpClient, public storage: StorageService) {
+    constructor (public http: HttpClient) {
         
     }
 
